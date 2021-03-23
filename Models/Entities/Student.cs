@@ -15,8 +15,10 @@ namespace OdenseUniversity.Models
         public string FullName => $"{FirstName}{LastName}";
 
         public ICollection<Enrollment> Enrollments { get; set; }
-      //  public ICollection<Course> Courses{ get; set; }
+
         public Address Address { get; set; }
+        public ICollection<Course> Courses{ get; set; }
+        
 
     }
 }

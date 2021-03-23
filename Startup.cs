@@ -10,7 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using OdenseUniversity.Data;
-
+using Microsoft.Extensions.Logging;
 
 namespace OdenseUniversity
 {
@@ -29,7 +29,8 @@ namespace OdenseUniversity
             services.AddControllersWithViews();
 
             services.AddDbContext<OdenseUniversityContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("OdenseUniversityContext")));
+                    options.UseSqlServer(Configuration.GetConnectionString("OdenseUniversityContext")).LogTo(Console.WriteLine, LogLevel.Information));
+
 
         }
 
@@ -57,7 +58,7 @@ namespace OdenseUniversity
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Students}/{action=Index}/{id?}");
             });
         }
     }

@@ -15,3 +15,4 @@ namespace OdenseUniversity.Models
         //public ICollection<Student> Students { get; set; }
     }
 }
+
